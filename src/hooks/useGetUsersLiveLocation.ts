@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as Location from 'expo-location';
+import { Alert, Linking } from 'react-native';
 
 export default function useGetUsersLiveLocation() {
   const [liveLocation, setLiveLocation] = useState<Location.LocationObject>();
@@ -8,17 +9,21 @@ export default function useGetUsersLiveLocation() {
     const requestUserLocation = async () => {
       const { status, granted } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
-        console.log('location permission denied');
+        Alert.alert(
+          'Location Access not granted',
+          'Location access is blocked. Please enable it in the app settings.',
+          [
+            { text: 'Cancel', style: 'cancel' },
+            { text: 'Open Settings', onPress: () => Linking.openSettings() },
+          ]
+        );
+
         return;
       }
-      // const currentUserLocation = await Location.LocationGeofencingRegionState
-      // const currentUserLocation = await Location.getCurrentPositionAsync();
-      // console.log('currentUserLocation', currentUserLocation);
-      // setUserLocation(currentUserLocation);
 
       const options: Location.LocationOptions = {
-        distanceInterval: 10,
-        timeInterval: 30 * 60 * 1000,
+        distanceInterval: 1, //1 meter interval
+        timeInterval: 5 * 60 * 1000, //5 minutes
       };
       await Location.watchPositionAsync(options, (data) => setLiveLocation(data));
     };

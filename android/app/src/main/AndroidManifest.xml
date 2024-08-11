@@ -29,6 +29,7 @@
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="geofence-alarter"/>
         <data android:scheme="com.akogwu.geofencealarter"/>
+        <data android:scheme="exp+geofence-alarter"/>
       </intent-filter>
     </activity>
     <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" android:exported="false"/>
