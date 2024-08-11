@@ -11,7 +11,7 @@ import React, { useRef, useState } from 'react';
 import tw from 'twrnc';
 import { ISlides, slides } from '../components/extras';
 import { OnBoardingSlide } from '../components/OnboardingSlide';
-import { COLORS, GOOGLE_PLACES_API_KEY } from '../utils/constatnts';
+import { COLORS } from '../utils/constatnts';
 import { Footer } from '../components/Footer';
 
 const Onboarding = () => {
@@ -50,7 +50,7 @@ const Onboarding = () => {
         { paddingTop: Platform.OS === 'android' ? 14 : 0 },
       ]}
     >
-      <StatusBar barStyle='light-content' />
+      <StatusBar barStyle={'light-content'} />
       <FlatList
         ref={flatListRef}
         data={slides || []}
