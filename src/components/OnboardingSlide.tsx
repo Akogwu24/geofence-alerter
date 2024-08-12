@@ -23,7 +23,7 @@ export function OnBoardingSlide({ item }: { item: ISlides }) {
 
       <View style={tw`gap-y-4 px-4`}>
         <Text style={tw`text-white  text-3xl text-center font-bold`}>{item?.title}</Text>
-        <Text style={tw`text-white text-lg text-center font-bold`}>{item?.subtitle}</Text>
+        <Text style={tw`text-white text-lg text-center font-bold px-4`}>{item?.subtitle}</Text>
       </View>
     </View>
   );

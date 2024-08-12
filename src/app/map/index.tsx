@@ -23,7 +23,7 @@ const Home = () => {
 
     // checks if user is within a radius of 500m from the goefence zone
     const checkIfUserIsWithinGeofenceArea = () => {
-      const result = isPointWithinRadius(liveLocation?.coords, selectedGeoFencePoint, 250);
+      const result = isPointWithinRadius(liveLocation?.coords, selectedGeoFencePoint, 400);
       setIsUserWithinGeofencedArea(result);
     };
 
@@ -77,7 +77,7 @@ const Home = () => {
               latitude: Number(selectedGeoFencePoint?.latitude),
               longitude: Number(selectedGeoFencePoint?.longitude),
             }}
-            radius={250}
+            radius={400}
             strokeColor='rgba(0, 150, 255, 0.5)'
             fillColor='rgba(0, 150, 255, 0.2)'
           />

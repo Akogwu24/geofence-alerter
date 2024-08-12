@@ -1,5 +1,5 @@
-import { View, Text, useWindowDimensions, TouchableOpacity, Pressable } from 'react-native';
-import React, { useRef, useState } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
 import tw from 'twrnc';
 import { slides } from './extras';
 import { useRouter } from 'expo-router';

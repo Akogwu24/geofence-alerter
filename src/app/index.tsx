@@ -50,14 +50,14 @@ const Onboarding = () => {
         { paddingTop: Platform.OS === 'android' ? 14 : 0 },
       ]}
     >
-      <StatusBar barStyle={'light-content'} />
+      <StatusBar barStyle={Platform.OS === 'ios' ? 'light-content' : 'dark-content'} />
       <FlatList
         ref={flatListRef}
         data={slides || []}
         renderItem={({ item }) => <OnBoardingSlide item={item} />}
         contentContainerStyle={{ height: height * 0.75 }}
         showsHorizontalScrollIndicator={false}
-        horizontal={true}
+        horizontal
         pagingEnabled
         onMomentumScrollEnd={updateCurrentSlideIndex}
       />
